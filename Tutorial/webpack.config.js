@@ -6,5 +6,14 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './dist')
     },
-    mode: 'none'
+    mode: 'none',
+    module: {
+        // what files and how to import them
+        rules: [
+            {
+                test: /\.(png|jpg)$/,
+                type: 'asset/resource'
+            }
+        ]
+    }
 }
