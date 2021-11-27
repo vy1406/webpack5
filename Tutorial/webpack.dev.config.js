@@ -1,29 +1,31 @@
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require ('html-webpack-plugin')
+
 module.exports = {
     entry: './src/index.js',
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: 'dist/'
+        publicPath: ''
     },
-    mode: 'none',
+    mode: 'development',
     module: {
         // what files and how to import them
         rules: [
             // Asset #1
             // npm run build -> watch build output console, bundle.js size and its content.
-            {
-                test: /\.(png|jpg)$/,
-                type: 'asset',
-                parser: {
-                    dataUrlCondition: {
-                        maxSize: 3 * 1024 // 3 kilobyes - tells webpack that if the file is larger than three kb, webpack is going to trteat it as asset/resource. and not asset/inline ( which turns into base64)
-                        // in order to play with it, 
-                    }
-                }
-            },
+            // {
+            //     test: /\.(png|jpg)$/,
+            //     type: 'asset',
+            //     parser: {
+            //         dataUrlCondition: {
+            //             maxSize: 3 * 1024 // 3 kilobyes - tells webpack that if the file is larger than three kb, webpack is going to trteat it as asset/resource. and not asset/inline ( which turns into base64)
+            //             // in order to play with it, 
+            //         }
+            //     }
+            // },
             // Asset #2 Asset/source
             // npm run build -> watch build output console, bundle.js size and its content.
             {
@@ -46,19 +48,24 @@ module.exports = {
                 type: 'asset/inline',
             }
             */
-
+            {
+                test: /\.(png|jpg)$/,
+                use: [
+                    'file-loader'
+                ]
+            },
             {
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader'
+                    'style-loader', 'css-loader'
                 ]
             },
-            // {
-            //     test: /\.scss$/,
-            //     use: [
-            //         MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'
-            //     ]
-            // }
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader', 'css-loader', 'sass-loader'
+                ]
+            },
             {
                 test: /\.js$/,
                 exclude: '/node_modules/',
@@ -73,9 +80,14 @@ module.exports = {
         ]
     },
     plugins: [
-        new TerserPlugin(),
-        new MiniCssExtractPlugin({
-            filename: 'styles.css'
-        })
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({ 
+            inject: 'body',
+            title: 'Hello world page title',
+            filename: 'subfolder/custom_filename.html',
+            meta: {
+                description: 'addiotiona meta tag.'
+            }
+        }),
     ]
 }
