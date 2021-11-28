@@ -1,4 +1,4 @@
-import Kiwi from './kiwi.jpg';
+import Kiwi from './components/kiwi-image/kiwi.jpg';
 import altText from './altText.txt';
 
 function addImage() {
