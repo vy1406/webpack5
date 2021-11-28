@@ -1,6 +1,6 @@
-import './app1.css'
+import './component1.css'
 
-class App1 { 
+class Component1 { 
     buttonCssClass = 'component-1'
     
     render () {
@@ -18,4 +18,4 @@ class App1 {
     }
 }
 
-export default App1;
+export default Component1;
