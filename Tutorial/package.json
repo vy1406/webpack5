@@ -9,7 +9,10 @@
     "build:original": "webpack --config webpack.original.config.js",
     "build:prod": "webpack --config webpack.production.config.js",
     "build:dev": "webpack serve --config webpack.dev.config.js --hot",
-    "build:node": "webpack --config configs/node/webpack.config.js"
+    "build:node": "webpack --config configs/node/webpack.node.config.js",
+    "start:node": "node server/server-node.js",
+    "build:mpa": "webpack --config configs/node/webpack.mpa.config.js",
+    "start:mpa": "node server/server-mpa.js"
   },
   "keywords": [],
   "author": "",

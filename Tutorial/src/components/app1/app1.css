@@ -1,0 +1,13 @@
+.app-1 {
+    font-size: 20px;
+    padding: 7px 15px;
+    background: green;
+    color: white;
+    outline: none;
+}
+
+.app-1-text {
+    color: green;
+    font-weight: bold;
+    
+}
