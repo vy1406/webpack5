@@ -4,13 +4,22 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
 
 module.exports = {
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/hello-world.js',
+        'kiwi': './src/kiwi.js'
+    },
     output: {
-        filename: 'bundle.[contenthash].js',
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         publicPath: ''
     },
     mode: 'production',
+    optimization: {
+        splitChunks: {
+            chunks: 'all',
+            minSize: 1000
+        }
+    },
     module: {
         // what files and how to import them
         rules: [
@@ -83,21 +92,36 @@ module.exports = {
         // new UglifyJsPlugin(),
         // new TerserPlugin(),
         new MiniCssExtractPlugin({
-            filename: 'styles.[contenthash].css'
+            filename: '[name].[contenthash].css'
         }),
-        new CleanWebpackPlugin(),
-        // new CleanWebpackPlugin({
-        //     cleanOnceBeforeBuildPatterns: [
-        //         '**/*', // default
-        //         path.join(process.cwd(), 'build/**/*')
-        //     ]
-        // }),
-        new HtmlWebpackPlugin({ 
+        // new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [
+                '**/*', // default
+                path.join(process.cwd(), 'dist/**/*')
+            ]
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'hello-world.html',
+            chunks: ['hello-world'],
+            description: 'hello world', 
             inject: 'body',
             title: 'Hello world page title',
             meta: {
-                description: 'addiotiona meta tag.'
-            }
+                description: 'addiotional meta tag.'
+            },
+            minify: false,
+        }),
+        new HtmlWebpackPlugin({ 
+            filename: 'kiwi.html',
+            chunks: ['kiwi'],
+            description: 'kiwi world',
+            inject: 'body',
+            title: 'kiwi page title',
+            meta: {
+                description: 'addiotional meta tag.'
+            },
+            minify: false,
         }),
     ]
 }
