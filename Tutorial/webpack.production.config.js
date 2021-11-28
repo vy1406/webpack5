@@ -95,7 +95,6 @@ module.exports = {
         new HtmlWebpackPlugin({ 
             inject: 'body',
             title: 'Hello world page title',
-            filename: 'subfolder/custom_filename.html',
             meta: {
                 description: 'addiotiona meta tag.'
             }

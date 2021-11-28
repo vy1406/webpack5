@@ -11,6 +11,16 @@ module.exports = {
         publicPath: ''
     },
     mode: 'development',
+    devServer: {
+        port: 9000,
+        static: {
+            directory: path.resolve(__dirname, './dist')
+        },
+        devMiddleware: {
+            index: 'index.html',
+            writeToDisk: true
+        }
+    },
     module: {
         // what files and how to import them
         rules: [
@@ -84,7 +94,6 @@ module.exports = {
         new HtmlWebpackPlugin({ 
             inject: 'body',
             title: 'Hello world page title',
-            filename: 'subfolder/custom_filename.html',
             meta: {
                 description: 'addiotiona meta tag.'
             }
