@@ -2,12 +2,18 @@ Tutorial/node_modules
 
 Tutorial/dist
 
-mfe
-mfe/app1/dist
-mfe/app1/node_modules
+moduleFederation/mfe/app1/dist
+moduleFederation/mfe/app1/node_modules
 
-mfe/app2/dist
-mfe/app2/node_modules
+moduleFederation/mfe/app2/dist
+moduleFederation/mfe/app2/node_modules
+
+moduleFederation/mfe-dashboard/app1/dist
+moduleFederation/mfe-dashboard/app1/node_modules
+
+moduleFederation/mfe-dashboard/app2/dist
+moduleFederation/mfe-dashboard/app2/node_modules
+
 
 # MFE
 Tutorial/src/indexes/mfe/app1/node_modules
