@@ -3,13 +3,17 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
 const { ModuleFederationPlugin } = require('webpack').container;
+const DefinePlugin = require('webpack').DefinePlugin
 
+const packageJson = require('./package.json')
+
+const PORT = 9003
 module.exports = {
     entry: './src/dashboard.js',
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: 'http://localhost:9003/'
+        publicPath: `http://localhost:${PORT}/`
     },
     mode: 'production',
     optimization: {
@@ -57,7 +61,14 @@ module.exports = {
             remotes: {
                 NameOfApp1: 'NameOfApp1@http://localhost:9001/remoteEntry.js',
                 NameOfApp2: 'NameOfApp2@http://localhost:9002/remoteEntry.js',
-            }   
+            }, 
+            // shared: packageJson.dependencies     
+        }),
+        new DefinePlugin({
+            'process.env': {
+                'myEnv': JSON.stringify('this is my env...'),
+                'PORT': JSON.stringify(PORT)
+            }
         })
     ]
 }

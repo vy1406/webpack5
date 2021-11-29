@@ -4,12 +4,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
 const { ModuleFederationPlugin } = require('webpack').container;
 
+const packageJson = require('./package.json')
+
 module.exports = {
     entry: './src/app1Index.js',
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: '/static/'
+        publicPath: 'http://localhost:9001/'
     },
     mode: 'production',
     optimization: {
@@ -65,9 +67,9 @@ module.exports = {
             name: 'NameOfApp1',
             filename: 'remoteEntry.js',
             exposes: {
-                './App1ButtonModule': './src/components/component1/component1.js', // name of the module we expose
                 './App1Page': './src/components/app1Page/app1Page.js' // name of the module we expose
-            }
+            },
+            shared: packageJson.dependencies   
         })
     ]
 }

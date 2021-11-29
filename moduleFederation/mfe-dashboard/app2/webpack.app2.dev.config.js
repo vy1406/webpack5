@@ -3,6 +3,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
 const { ModuleFederationPlugin } = require('webpack').container;
 
+const packageJson = require('./package.json')
+
 module.exports = {
     entry: './src/app2Index.js',
     output: {
@@ -65,7 +67,8 @@ module.exports = {
             filename: 'remoteEntry.js',
             exposes: {
                 './App2Page': './src/components/app2Page/app2Page.js' // name of the module we expose
-            }   
+            },
+            // shared: packageJson.dependencies   
         })
     ]
 }

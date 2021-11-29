@@ -13,7 +13,6 @@ app.get('*', function(req, res) {
     res.send(contentFromHtmlFile)
 })
 
-
 app.listen(PORT, function() {
     console.log('dashboard is up. port: ', PORT)
 })

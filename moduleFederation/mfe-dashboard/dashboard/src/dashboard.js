@@ -16,6 +16,7 @@ navigation.render(navigationItems);
 
 const url = window.location.pathname
 
+console.log(process.env.myEnv)
 if ( url === '/app1Page') {
 
     import('NameOfApp1/App1Page').then(exposedModule => {

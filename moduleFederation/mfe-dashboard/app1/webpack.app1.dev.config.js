@@ -3,6 +3,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
 const { ModuleFederationPlugin } = require('webpack').container;
 
+const packageJson = require('./package.json')
+
 module.exports = {
     entry: './src/app1Index.js',
     output: {
@@ -23,6 +25,7 @@ module.exports = {
     },
     module: {
         rules: [
+            
             {
                 test: /\.css$/,
                 use: [
@@ -58,9 +61,10 @@ module.exports = {
             name: 'NameOfApp1',
             filename: 'remoteEntry.js',
             exposes: {
-                './App1ButtonModule': './src/components/component1/component1.js', // name of the module we expose
                 './App1Page': './src/components/app1Page/app1Page.js' // name of the module we expose
-            }
+            },
+            shared: packageJson.dependencies   
         })
+        
     ]
 }
