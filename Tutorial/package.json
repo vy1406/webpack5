@@ -12,7 +12,8 @@
     "build:node": "webpack --config configs/node/webpack.node.config.js",
     "start:node": "node server/server-node.js",
     "build:mpa": "webpack --config configs/node/webpack.mpa.config.js",
-    "start:mpa": "node server/server-mpa.js"
+    "start:mpa": "node server/server-mpa.js",
+    "build:mfe1": "webpack --config src/indexes/mfe/app1/webpack.app1.prod.config.js"
   },
   "keywords": [],
   "author": "",

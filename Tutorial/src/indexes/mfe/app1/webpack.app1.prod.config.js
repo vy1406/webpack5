@@ -1,13 +1,12 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
 
 module.exports = {
-    entry: {
-        'app2Index': './src/app1Index.js',
-    },
+    entry: './src/app1Index.js',
     output: {
-        filename: '[name].bundle.js',
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         publicPath: '/static/'
     },
@@ -30,7 +29,7 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader', 'css-loader'
+                    MiniCssExtractPlugin.loader, 'css-loader'
                 ]
             },
             {
@@ -47,6 +46,9 @@ module.exports = {
         ]
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: '[name].[contenthash].css'
+        }),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({ 
             filename: 'app1Index.html',

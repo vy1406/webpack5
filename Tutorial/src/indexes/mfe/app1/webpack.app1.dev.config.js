@@ -3,30 +3,25 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
 
 module.exports = {
-    entry: {
-        'app1Index': './src/app1Index.js',
-    },
+    entry: 'src/app1Index.js',
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
         publicPath: '/static/'
     },
     mode: 'development',
-    optimization: {
-        splitChunks: {
-            chunks: 'all',
-            minSize: 1000,
-            automaticNameDelimiter: '_'
+    devServer: {
+        port: 9001,
+        static: {
+            directory: path.resolve(__dirname, './dist')
+        },
+        devMiddleware: {
+            index: 'app1Index.html',
+            writeToDisk: true
         }
     },
     module: {
         rules: [
-            {
-                test: /\.(png|jpg)$/,
-                use: [
-                    'file-loader'
-                ]
-            },
             {
                 test: /\.css$/,
                 use: [
