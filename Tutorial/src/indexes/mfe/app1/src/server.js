@@ -11,8 +11,8 @@ app.get('/', function(req, res) {
     res.send(contentFromHtmlFile)
 })
 
-app.use('/static', express.static(path.resolve(__dirname, '../dist')));
+app.use('/', express.static(path.resolve(__dirname, '../dist')));
 
 app.listen(PORT, function() {
-    console.log('App1 is up. port: ', PORT)
+    console.log('App1 is up. http;//localhost:', PORT)
 })

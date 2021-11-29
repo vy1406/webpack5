@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
     entry: './src/app1Index.js',
@@ -60,5 +61,12 @@ module.exports = {
             },
             minify: false,
         }),
+        new ModuleFederationPlugin({
+            name: 'NameOfApp1',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './App1ButtonModule': './src/components/component1/component1.js' // name of the module we expose
+            }
+        })
     ]
 }

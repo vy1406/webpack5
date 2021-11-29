@@ -1,13 +1,14 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
-    entry: 'src/app1Index.js',
+    entry: './src/app1Index.js',
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: '/static/'
+        publicPath: 'http://localhost:9001/'
     },
     mode: 'development',
     devServer: {
@@ -53,5 +54,12 @@ module.exports = {
             },
             minify: false,
         }),
+        new ModuleFederationPlugin({
+            name: 'NameOfApp1',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './App1ButtonModule': './src/components/component1/component1.js' // name of the module we expose
+            }
+        })
     ]
 }

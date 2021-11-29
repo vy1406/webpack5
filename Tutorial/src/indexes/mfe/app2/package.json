@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/server.js",
-    "build:dev": "webpack serve --config webpack.app2.dev.config.js --hot",
+    "start:dev": "webpack serve --config webpack.app2.dev.config.js --hot",
     "build:prod": "webpack --config webpack.app2.prod.config.js"
   },
   "keywords": [],

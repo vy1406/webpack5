@@ -1,13 +1,14 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require ('html-webpack-plugin')
+const { ModuleFederationPlugin } = require('webpack').container;
 
 module.exports = {
     entry: './src/app2Index.js',
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: '/static/'
+        publicPath: ''
     },
     mode: 'development',
     devServer: {
@@ -59,5 +60,12 @@ module.exports = {
             },
             minify: false,
         }),
+        new ModuleFederationPlugin({
+            name: 'NameOfApp2',
+            // no exposes.
+            remotes: { // list of exposes we are going to consume here
+                NameOfApp1: 'NameOfApp1@http://localhost:9001/remoteEntry.js'
+            }
+        })
     ]
 }
