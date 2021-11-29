@@ -14,6 +14,9 @@ moduleFederation/mfe-dashboard/app1/node_modules
 moduleFederation/mfe-dashboard/app2/dist
 moduleFederation/mfe-dashboard/app2/node_modules
 
+moduleFederation/mfe-dashboard/dashboard/dist
+moduleFederation/mfe-dashboard/dashboard/node_modules
+
 
 # MFE
 Tutorial/src/indexes/mfe/app1/node_modules
