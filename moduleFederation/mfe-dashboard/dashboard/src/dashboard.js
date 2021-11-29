@@ -1,5 +1,20 @@
+import NavigationBar from './components/navitgationBar/navigationBar'
+
+const navigationItems = [
+    {
+        url: '/app1Page',
+        title: 'App 1 Page'
+    },
+    {
+        url: '/app2Page',
+        title: 'App 2 Page'
+    }
+]
+
+const navigation = new NavigationBar();
+navigation.render(navigationItems);
+
 const url = window.location.pathname
-console.log(url)
 
 if ( url === '/app1Page') {
 
