@@ -5,6 +5,10 @@ Tutorial/dist
 assetModules/**/node_modules
 assetModules/**/dist
 
+loaders/**/node_modules
+loaders/**/dist
+
+
 moduleFederation/mfe/app1/dist
 moduleFederation/mfe/app1/node_modules
 
