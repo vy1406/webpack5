@@ -11,6 +11,8 @@ Tutorial/dist
 3_plugins/**/node_modules
 3_plugins/**/dist
 
+4_dev_vs_prod/**/node_modules
+4_dev_vs_prod/**/dist
 
 moduleFederation/mfe/app1/dist
 moduleFederation/mfe/app1/node_modules
