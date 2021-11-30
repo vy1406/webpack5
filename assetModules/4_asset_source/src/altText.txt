@@ -1,0 +1,1 @@
+some alt text from altText.txt
