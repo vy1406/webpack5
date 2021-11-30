@@ -2,11 +2,14 @@ Tutorial/node_modules
 
 Tutorial/dist
 
-assetModules/**/node_modules
-assetModules/**/dist
+1_assetModules/**/node_modules
+1_assetModules/**/dist
 
-loaders/**/node_modules
-loaders/**/dist
+2_loaders/**/node_modules
+2_loaders/**/dist
+
+3_plugins/**/node_modules
+3_plugins/**/dist
 
 
 moduleFederation/mfe/app1/dist
