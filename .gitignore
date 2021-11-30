@@ -2,8 +2,8 @@ Tutorial/node_modules
 
 Tutorial/dist
 
-assetModules/images/node_modules
-assetModules/images/dist
+assetModules/**/node_modules
+assetModules/**/dist
 
 moduleFederation/mfe/app1/dist
 moduleFederation/mfe/app1/node_modules
