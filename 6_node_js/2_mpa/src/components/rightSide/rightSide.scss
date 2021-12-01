@@ -1,0 +1,15 @@
+$font-size: 20px;
+$button-color: pink;
+
+.right-side-style {
+    font-size: $font-size;
+    padding: 7px 15px;
+    background: $button-color;
+    color: white;
+    outline: none;
+}
+
+.bird-style {
+    color: green;
+    font-weight: bold;
+}

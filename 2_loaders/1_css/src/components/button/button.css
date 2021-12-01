@@ -1,0 +1,12 @@
+.button-style {
+    font-size: 20px;
+    padding: 7px 15px;
+    background: green;
+    color: white;
+    outline: none;
+}
+
+.p-style {
+    color: green;
+    font-weight: bold;
+}

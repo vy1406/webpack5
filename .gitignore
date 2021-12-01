@@ -1,2 +1,21 @@
 Tutorial/node_modules
+
 Tutorial/dist
+
+Presentation/*
+
+**/**/node_modules
+**/**/dist
+
+
+**/**/**/node_modules
+**/**/**/dist
+
+
+# MFE
+Tutorial/src/indexes/mfe/app1/node_modules
+Tutorial/src/indexes/mfe/app1/dist
+Tutorial/src/indexes/mfe/app1/package-lock.json
+Tutorial/src/indexes/mfe/app2/node_modules
+Tutorial/src/indexes/mfe/app2/dist
+Tutorial/src/indexes/mfe/app2/package-lock.json

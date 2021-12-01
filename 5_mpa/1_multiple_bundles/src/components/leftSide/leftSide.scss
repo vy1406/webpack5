@@ -1,0 +1,15 @@
+$font-size: 20px;
+$button-color: blue;
+
+.left-side-style {
+    font-size: $font-size;
+    padding: 7px 15px;
+    background: $button-color;
+    color: white;
+    outline: none;
+}
+
+.storm-style {
+    color: green;
+    font-weight: bold;
+}
