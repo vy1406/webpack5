@@ -2,35 +2,14 @@ Tutorial/node_modules
 
 Tutorial/dist
 
-1_assetModules/**/node_modules
-1_assetModules/**/dist
+Presentation/*
 
-2_loaders/**/node_modules
-2_loaders/**/dist
+**/**/node_modules
+**/**/dist
 
-3_plugins/**/node_modules
-3_plugins/**/dist
 
-4_dev_vs_prod/**/node_modules
-4_dev_vs_prod/**/dist
-
-5_mpa/**/node_modules
-5_mpa/**/dist
-
-moduleFederation/mfe/app1/dist
-moduleFederation/mfe/app1/node_modules
-
-moduleFederation/mfe/app2/dist
-moduleFederation/mfe/app2/node_modules
-
-moduleFederation/mfe-dashboard/app1/dist
-moduleFederation/mfe-dashboard/app1/node_modules
-
-moduleFederation/mfe-dashboard/app2/dist
-moduleFederation/mfe-dashboard/app2/node_modules
-
-moduleFederation/mfe-dashboard/dashboard/dist
-moduleFederation/mfe-dashboard/dashboard/node_modules
+**/**/**/node_modules
+**/**/**/dist
 
 
 # MFE
